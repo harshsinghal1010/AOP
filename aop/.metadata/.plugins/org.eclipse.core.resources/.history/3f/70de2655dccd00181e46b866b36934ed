@@ -1,0 +1,32 @@
+package com.harsh.aop;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class FirstAop {
+
+	@Before("show()")
+	public void showMsg() {//advice method
+		System.out.println("Before AOP");
+	}
+	
+	@After("show()")
+	public void showMsg1() {
+		System.out.println("AFTER AOP");
+	}
+	
+	@AfterReturning("show()")
+	public void showMsg2() {
+		System.out.println("AFTERReturing AOP");
+	}
+	
+	
+	@Pointcut("execution(public void showService() )")//pointcut
+	public void show() {
+		System.out.println("yeh nahi chalta");
+	}
+}
